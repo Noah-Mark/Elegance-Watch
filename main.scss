@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Fresca&family=Lobster&family=Poppins&display=swap');
+body{
+    color: white;
+    margin: 1.5em;
+    font-family: 'Poppins', sans-serif;
+    .menu{
+        width: 2em;
+    }
+}
+.hero-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/4 (2).jpg');
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: 40%;
+    background-position-y: 40%;
+    animation: introLoad 2s forwards;
+}
+nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    color: black;
+    height: 100vh;
+    width: 50%;
+    z-index: 999;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin-top: 8em;
+    }
+    ul li{
+        list-style: none;
+    }
+    ul li a{
+        color: black;
+        padding: .75em 2em;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+
+        &:hover{
+            background: rgb(206, 206, 206);
+        }
+    }
+    .close{
+        width: 5em;
+        margin: 2em;
+        float: right;
+    }
+
+}
+
+section.content{
+    color: white;
+    height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+
+    
+    h1{
+        font-size: 2.5rem;
+        margin-top: 2.5em;
+        line-height: 3.3rem;
+    }
+    p{
+        margin-top: -2em;
+        font-size: 0.7rem;
+    }
+}
+.arrow-down{
+    stroke: white;
+    position: absolute;
+    bottom: 2em;
+    width: 1em;
+    animation: moveArrow 1s alternate-reverse infinite;
+
+    path{
+        fill: white;
+    }
+}
+
+header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    .logo{
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+    }
+    span{
+        color: rgb(128, 128, 128);
+    }
+    img{
+        width: 2em;
+        margin: -0.6px;
+        cursor: pointer;
+    }
+}
+
+.displays{
+    color: black;
+
+    img{
+        width: 100%;
+        object-fit: cover;
+        height: 11em;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    p{
+        margin-top: -1em;
+        font-size: 0.8em;
+    }
+}
+.open-nav{
+    transform: translateX(0%);
+}
+@media only screen and (min-width: 680px){
+    body{
+        margin: 1.5em 5em;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+@media only screen and (min-width: 920px){
+    .menu{
+        display: none;
+    }
+    nav{
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none;
+
+        svg.close{
+            display: none;
+        }
+        ul{
+            display: flex;
+            margin: 0;
+        }
+        ul li a{
+            padding: .5em 1.5em;
+            font-size: .9rem;
+            color: white;
+            text-transform: none;
+        }
+        ul li a:hover{
+            background: none;
+            text-decoration: underline;
+        }
+    }
+    .hero-img{
+        position: absolute;
+        right: 0;
+        width: 50%;
+        left: unset;
+        height: 42em;
+    }
+    section.content{
+        color: black;
+        height: auto;
+        margin-bottom: 32em;
+        h1{
+            font-size: 2.5rem;
+            margin-top: 3.5em;
+            line-height: 3.3rem;
+        }
+        p{
+            margin-top: -2em;
+            font-size: 0.7rem;
+            max-width: 500px;
+        }
+      
+    }
+    .arrow-down{
+        stroke: black;
+        path{
+            fill: black;
+        }
+    }
+    header .logo{
+        color: black;
+        font-size: 1.9rem;
+    }
+    .displays{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 8em;
+        img{
+            width: 35em;
+            height: 15em;
+        }
+        h1{
+            text-align: right;
+    }
+    }
+}
+@media only screen and (min-width: 1200px){
+    .wrapper{
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .displays{
+        gap: 5em;
+    }
+}
+@keyframes introLoad {
+    from{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+@keyframes moveArrow {
+    from{
+        transform: translateY(-30px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes moveDown {
+    from{
+        transform: translateY(-100px);
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
